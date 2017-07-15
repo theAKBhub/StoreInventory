@@ -1,0 +1,180 @@
+<resources>
+    <string name="app_name">Store Inventory</string>
+
+    <!-- Activity Titles -->
+    <string name="title_editor">Product : </string>
+    <string name="title_editor_add">\u0020\u0020Add</string>
+    <string name="title_editor_edit">\u0020\u0020Edit</string>
+    <string name="title_detail">Product Details</string>
+    <string name="title_settings">Product List Settings</string>
+
+
+    <!-- Default / Placeholder Strings for Views -->
+    <string name="default_product_name">Product Name</string>
+    <string name="default_product_price">Price: £15.00\u0020\u0020|\u0020\u0020</string>
+    <string name="default_product_sale_price">Sale Price: £10.00\u0020\u0020|\u0020\u0020</string>
+    <string name="default_product_stock">\u0020\u0020|\u0020\u0020Stock: 100</string>
+    <string name="default_emptystate_image">Empty State Image</string>
+    <string name="default_editor_image">Product Image Holder</string>
+    <string name="default_editor_error">Invalid entry</string>
+    <string name="default_price">£15.00</string>
+    <string name="default_stock">100</string>
+    <string name="default_email">supplier@gmail.com</string>
+    <string name="default_phone">\u002B44\u0020111\u0020222\u002D3333</string>
+
+
+    <!-- Labels -->
+    <string name="label_product_name">Product Name *</string>
+    <string name="label_product_name_1">Product Name</string>
+    <string name="label_price">Price *</string>
+    <string name="label_price_1">Price</string>
+    <string name="label_discount">Sale Price</string>
+    <string name="label_on_offer">Product On Offer</string>
+    <string name="label_on_offer_alert">check if Sale Price > £0.00</string>
+    <string name="label_stock">Stock *</string>
+    <string name="label_stock_1">Adjust Product Stock</string>
+    <string name="label_supplier">Supplier Name *</string>
+    <string name="label_supplier_1">Supplier Name</string>
+    <string name="label_email">Supplier Email *</string>
+    <string name="label_email_1">Supplier Email</string>
+    <string name="label_phone">Supplier Phone</string>
+    <string name="label_currency">\u00A3</string>
+    <string name="label_image">Add image</string>
+    <string name="label_email_subject">Re: Ordering stock for %s</string>
+
+
+    <!-- UI Element Tags -->
+    <string name="tag_typeface_r">TypefaceRegular</string>
+    <string name="tag_typeface_b">TypefaceBold</string>
+    <string name="tag_typeface_i">TypefaceItalic</string>
+    <string name="tag_typeface_title">TypefaceTitle</string>
+
+
+    <!-- Information Messages -->
+    <string name="info_empty_store_title">Inventory is empty</string>
+    <string name="info_empty_store_subtitle">Get started by adding a product</string>
+
+
+    <!-- Display Strings -->
+    <string name="display_product_price">Price: £%.2f\u0020|\u0020</string>
+    <string name="display_product_sale_price">Sale Price: £%.2f\u0020|\u0020</string>
+    <string name="display_product_stock">Stock: %d</string>
+
+
+    <!-- Menu Strings -->
+    <string name="menu_delete_all">Delete All Products</string>
+    <string name="menu_delete">Delete Product</string>
+    <string name="menu_edit">Edit Product</string>
+    <string name="menu_add_item">Add Product</string>
+    <string name="menu_settings">Settings</string>
+
+
+    <!-- Exception Messages -->
+    <string name="exception_unknown_uri">URI provided is unknown, and cannot be queried => %s</string>
+    <string name="exception_invalid_name">Product Name is invalid</string>
+    <string name="exception_invalid_price">Product Price is invalid</string>
+    <string name="exception_invalid_discount_price">Product Discount Price is invalid</string>
+    <string name="exception_invalid_stock">Product Stock is invalid</string>
+    <string name="exception_invalid_offer_flag">Product On-Offer flag is invalid</string>
+    <string name="exception_invalid_discount_offer">If Discount Price is not zero, then On-Offer flag must be switched on and vice versa</string>
+    <string name="exception_invalid_supplier">Supplier Name is invalid</string>
+    <string name="exception_invalid_supplier_email">Supplier Email is invalid</string>
+    <string name="exception_image_load_failed">Failed to load image</string>
+
+
+    <!-- Error Messages -->
+    <string name="error_empty_product">Did you forget to enter a product name?</string>
+    <string name="error_empty_price">Did you forget to enter a price for the product?</string>
+    <string name="error_empty_discount">You must enter a Sale Price if On-Offer is checked</string>
+    <string name="error_discount_compare_price">Sale Price cannot be greater than or same as original price</string>
+    <string name="error_empty_stock">Did you forget to enter product stock?</string>
+    <string name="error_empty_supplier">Supplier Name cannot be empty</string>
+    <string name="error_invalid_email">Supplier Email is either empty or invalid</string>
+    <string name="error_offer_not_checked">On-Offer needs to be checked as the product is on sale</string>
+    <string name="error_no_image">You must add an image for the product</string>
+    <string name="error_insert">Failed to insert the record => %s</string>
+    <string name="error_stock_update">Failed to reduce product stock</string>
+    <string name="error_delete_all_entries">Failed to delete all entries</string>
+    <string name="error_delete_failed">Failed to delete the product</string>
+    <string name="error_insert_failed">Product record could not be saved</string>
+    <string name="error_update_failed">Product record could not be updated</string>
+
+
+    <!-- Dialog Strings -->
+    <string name="dialog_msg_delete">Are you sure you want to delete all\nproducts?
+            Click NO to skip this action</string>
+    <string name="dialog_unsaved_changes">Discard your changes and quit editing?</string>
+    <string name="dialog_delete">Confirm delete of this product? Click NO to skip this action.</string>
+
+
+    <!-- Action Strings -->
+    <string name="action_yes">YES</string>
+    <string name="action_no">NO</string>
+    <string name="action_select_picture">Select Picture</string>
+
+
+    <!-- Confirmation Messages -->
+    <string name="confirm_delete_all_entries">All products deleted</string>
+    <string name="confirm_insert_successful">Product record inserted successfully</string>
+    <string name="confirm_delete_successful">Product record deleted successfully</string>
+    <string name="confirm_update_successful">Product record updated successfully</string>
+
+
+    <!-- Hints for Editor fields -->
+    <string name="hint_required">Fields marked with * are required</string>
+    <string name="hint_label_product">Product Name *</string>
+    <string name="hint_label_price">Product Price * \n(max 999.99)</string>
+    <string name="hint_label_discount">Product Sale Price \n(max 999.99)</string>
+    <string name="hint_price">e.g. 15.50</string>
+    <string name="hint_discount">e.g. 10.50</string>
+    <string name="hint_stock">e.g. 100</string>
+    <string name="hint_label_stock">Product Stock *</string>
+    <string name="hint_label_supplier">Supplier Name *</string>
+    <string name="hint_label_phone">Supplier Phone</string>
+    <string name="hint_label_email">Supplier Email *</string>
+    <string name="check_label_offer">Product On Offer (check this if Sale Price entered)</string>
+
+
+    <!-- -->
+    <!-- Settings -->
+    <!-- -->
+
+    <string name="settings_order_by_label">Order By</string>
+    <string name="settings_order_by_key" translatable="false">order-by</string>
+    <string name="settings_order_by_default" translatable="false">@string/settings_order_by_oldest_value</string>
+
+    <!-- Default Order - Order by ID ASC-->
+    <string name="settings_order_by_oldest_label">Oldest First</string>
+    <string name="settings_order_by_oldest_value" translatable="false">oldest</string>
+
+    <!-- Order by ID DESC -->
+    <string name="settings_order_by_newest_label">Newest First</string>
+    <string name="settings_order_by_newest_value" translatable="false">newest</string>
+
+    <!-- Order by Product Name A-Z -->
+    <string name="settings_order_by_name_asc_label">Product Name A-Z</string>
+    <string name="settings_order_by_name_asc_value" translatable="false">name-asc</string>
+
+    <!-- Order by Product Name Z-A -->
+    <string name="settings_order_by_name_desc_label">Product Name Z-A</string>
+    <string name="settings_order_by_name_desc_value" translatable="false">name-desc</string>
+
+    <!-- Order by Price ASC -->
+    <string name="settings_order_by_price_asc_label">Product Price : Lowest -> Highest</string>
+    <string name="settings_order_by_price_asc_value" translatable="false">price-asc</string>
+
+    <!-- Order by Price DESC -->
+    <string name="settings_order_by_price_desc_label">Product Price : Highest -> Lowest</string>
+    <string name="settings_order_by_price_desc_value" translatable="false">price-desc</string>
+
+    <!-- Order by Stock ASC -->
+    <string name="settings_order_by_stock_asc_label">Stock : Lowest -> Highest</string>
+    <string name="settings_order_by_stock_asc_value" translatable="false">stock-asc</string>
+
+    <!-- Order by Stock DESC -->
+    <string name="settings_order_by_stock_desc_label">Stock : Highest -> Lowest</string>
+    <string name="settings_order_by_stock_desc_value" translatable="false">stock-desc</string>
+
+    <string name="settings_on_offer_key" translatable="false">on-offer</string>
+
+</resources>

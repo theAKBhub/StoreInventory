@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/colorBackground"
+    android:fillViewport="true"
+    tools:context="com.example.android.storeinventory.EditorActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/activity_margin"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/text_required_info"
+            style="@style/EditorRequiredInfo"
+            android:text="@string/hint_required"/>
+
+        <TextView
+            android:id="@+id/text_error"
+            style="@style/EditorError"
+            tools:text="@string/default_editor_error"/>
+
+        <LinearLayout
+            style="@style/EditorLlayout">
+            <TextView
+                android:id="@+id/text_label_product"
+                style="@style/EditorLabel"
+                android:text="@string/label_product_name"/>
+
+            <EditText
+                android:id="@+id/edit_product_name"
+                style="@style/EditorInput"
+                android:inputType="textCapWords"/>
+        </LinearLayout>
+
+        <LinearLayout
+            style="@style/EditorLlayout">
+            <TextView
+                android:id="@+id/text_label_price"
+                style="@style/EditorLabel"
+                android:text="@string/label_price"/>
+
+            <TextView
+                style="@style/EditorLabelCurrency"/>
+            <EditText
+                android:id="@+id/edit_product_price"
+                style="@style/EditorInput"
+                android:layout_weight="1.8"
+                android:inputType="numberDecimal"/>
+        </LinearLayout>
+
+        <LinearLayout
+            style="@style/EditorLlayout">
+            <TextView
+                android:id="@+id/text_label_discount"
+                style="@style/EditorLabel"
+                android:text="@string/label_discount"/>
+
+            <TextView
+                style="@style/EditorLabelCurrency"/>
+            <EditText
+                android:id="@+id/edit_product_discount"
+                style="@style/EditorInput"
+                android:layout_weight="1.8"
+                android:inputType="numberDecimal"/>
+        </LinearLayout>
+
+        <LinearLayout
+            style="@style/EditorLlayout">
+            <TextView
+                android:id="@+id/text_label_offer"
+                style="@style/EditorLabel"
+                android:text="@string/label_on_offer"/>
+
+            <CheckBox
+                android:id="@+id/check_offer"
+                style="@style/EditorCheckBox"
+                android:theme="@style/EditorCheckTheme"
+                android:text="@string/label_on_offer_alert"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            style="@style/EditorLlayout">
+            <TextView
+                android:id="@+id/text_label_stock"
+                style="@style/EditorLabel"
+                android:text="@string/label_stock"/>
+
+            <EditText
+                android:id="@+id/edit_product_stock"
+                style="@style/EditorInput"
+                android:inputType="number"/>
+        </LinearLayout>
+
+        <LinearLayout
+            style="@style/EditorLlayout">
+            <TextView
+                android:id="@+id/text_label_supplier"
+                style="@style/EditorLabel"
+                android:text="@string/label_supplier"/>
+
+            <EditText
+                android:id="@+id/edit_supplier_name"
+                style="@style/EditorInput"
+                android:inputType="textCapWords"/>
+        </LinearLayout>
+
+        <LinearLayout
+            style="@style/EditorLlayout">
+            <TextView
+                android:id="@+id/text_label_email"
+                style="@style/EditorLabel"
+                android:text="@string/label_email"/>
+
+            <EditText
+                android:id="@+id/edit_supplier_email"
+                style="@style/EditorInput"
+                android:inputType="textEmailAddress"/>
+        </LinearLayout>
+
+        <LinearLayout
+            style="@style/EditorLlayout">
+            <TextView
+                android:id="@+id/text_label_phone"
+                style="@style/EditorLabel"
+                android:text="@string/label_phone"/>
+
+            <EditText
+                android:id="@+id/edit_supplier_phone"
+                style="@style/EditorInput"
+                android:inputType="phone"/>
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/button_add_image"
+            style="@style/EditorButton"
+            android:text="@string/label_image"/>
+
+        <ImageView
+            android:id="@+id/image_product"
+            style="@style/EditorImageHolder"
+            android:contentDescription="@string/default_editor_image"/>
+
+    </LinearLayout>
+
+</ScrollView>

@@ -1,0 +1,211 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+
+    <!-- Empty State Screen Styles -->
+    <style name="GENEmptyState">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_centerHorizontal">true</item>
+        <item name="android:textColor">@color/colorText</item>
+    </style>
+
+    <style name="EmptyStateTitle" parent="GENEmptyState">
+        <item name="android:textSize">@dimen/textsize_xlarge</item>
+        <item name="android:textColor">@color/colorPrimary</item>
+        <item name="android:paddingTop">@dimen/activity_margin</item>
+        <item name="android:tag">@string/tag_typeface_title</item>
+    </style>
+
+    <style name="EmptyStateSubtitle" parent="GENEmptyState">
+        <item name="android:textSize">@dimen/textsize_small</item>
+        <item name="android:paddingTop">@dimen/dimen_8dp</item>
+        <item name="android:tag">@string/tag_typeface_r</item>
+    </style>
+
+
+    <!-- ListView Styles -->
+
+    <style name="GENListView">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/colorText</item>
+        <item name="android:tag">@string/tag_typeface_r</item>
+        <item name="android:textSize">@dimen/textsize_small</item>
+    </style>
+
+    <style name="ListViewProduct" parent="GENListView">
+        <item name="android:textColor">@color/colorPrimary</item>
+    </style>
+
+    <style name="ListViewProductDetails" parent="GENListView">
+        <item name="android:textColor">@color/colorText</item>
+    </style>
+
+
+    <!-- Editor Activity Styles -->
+
+    <style name="EditorRequiredInfo">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/colorTextHighlight</item>
+        <item name="android:layout_marginBottom">@dimen/dimen_20dp</item>
+        <item name="android:textSize">@dimen/textsize_small</item>
+        <item name="android:tag">@string/tag_typeface_i</item>
+    </style>
+
+    <style name="EditorError">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@color/colorTextHighlight</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:layout_marginBottom">@dimen/dimen_20dp</item>
+        <item name="android:textSize">@dimen/textsize_small</item>
+        <item name="android:tag">@string/tag_typeface_r</item>
+        <item name="android:padding">@dimen/dimen_10dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:visibility">gone</item>
+    </style>
+
+    <style name="EditorLabel">
+        <item name="android:layout_width">@dimen/dimen_0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">0.9</item>
+        <item name="android:gravity">right</item>
+        <item name="android:layout_marginRight">@dimen/dimen_10dp</item>
+        <item name="android:textColor">@color/colorPrimary</item>
+        <item name="android:textSize">@dimen/textsize_small</item>
+        <item name="android:tag">@string/tag_typeface_r</item>
+    </style>
+
+    <style name="EditorInput">
+        <item name="android:layout_width">@dimen/dimen_0dp</item>
+        <item name="android:layout_height">@dimen/dimen_40dp</item>
+        <item name="android:layout_weight">2.1</item>
+        <item name="android:textColor">@color/colorText</item>
+        <item name="android:textSize">@dimen/textsize_small</item>
+        <item name="android:background">@color/colorListItem</item>
+        <item name="android:paddingLeft">@dimen/dimen_10dp</item>
+        <item name="android:tag">@string/tag_typeface_r</item>
+    </style>
+
+    <style name="EditorLlayout">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:layout_gravity">center_vertical</item>
+        <item name="android:layout_marginTop">@dimen/dimen_10dp</item>
+    </style>
+
+    <style name="EditorCheckTheme" parent="Widget.AppCompat.CompoundButton.CheckBox">
+        <item name="colorControlNormal">@color/colorPrimary</item>
+        <item name="colorControlActivated">@color/colorPrimaryDark</item>
+    </style>
+
+    <style name="EditorCheckBox" parent="Widget.AppCompat.CompoundButton.CheckBox">
+        <item name="android:layout_width">@dimen/dimen_0dp</item>
+        <item name="android:layout_weight">2.1</item>
+        <item name="android:layout_height">@dimen/dimen_40dp</item>
+        <item name="android:textColor">@color/colorText</item>
+        <item name="android:textSize">@dimen/textsize_small</item>
+        <item name="android:tag">@string/tag_typeface_r</item>
+    </style>
+
+    <style name="EditorLabelCurrency" parent="EditorInput">
+        <item name="android:layout_weight">0.3</item>
+        <item name="android:gravity">center</item>
+        <item name="android:paddingLeft">@dimen/dimen_0dp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:layout_marginRight">@dimen/dimen_3dp</item>
+        <item name="android:text">@string/label_currency</item>
+    </style>
+
+    <style name="EditorButton">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">@dimen/dimen_30dp</item>
+        <item name="android:layout_marginBottom">@dimen/dimen_30dp</item>
+        <item name="android:layout_gravity">center_horizontal</item>
+        <item name="android:paddingLeft">@dimen/dimen_20dp</item>
+        <item name="android:paddingRight">@dimen/dimen_20dp</item>
+        <item name="android:background">@color/colorPrimary</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:tag">@string/tag_typeface_b</item>
+    </style>
+
+    <style name="EditorImageHolder">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:padding">@dimen/activity_margin</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:background">@color/colorListItem</item>
+        <item name="android:layout_marginTop">@dimen/dimen_30dp</item>
+        <item name="android:layout_marginBottom">@dimen/dimen_50dp</item>
+    </style>
+
+
+    <!-- Detail Screen Styles -->
+
+    <style name="DetailInput">
+        <item name="android:layout_width">@dimen/dimen_0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">2.1</item>
+        <item name="android:textColor">@color/colorText</item>
+        <item name="android:textSize">@dimen/textsize_small</item>
+        <item name="android:background">@color/colorListItem</item>
+        <item name="android:paddingLeft">@dimen/dimen_10dp</item>
+        <item name="android:paddingTop">@dimen/dimen_12dp</item>
+        <item name="android:paddingBottom">@dimen/dimen_12dp</item>
+        <item name="android:tag">@string/tag_typeface_r</item>
+        <item name="android:gravity">center_vertical</item>
+    </style>
+
+    <style name="DetailStockButton">
+        <item name="android:layout_width">@dimen/dimen_50dp</item>
+        <item name="android:layout_height">@dimen/dimen_50dp</item>
+        <item name="android:background">@color/colorPrimary</item>
+    </style>
+
+    <style name="DetailStock">
+        <item name="android:layout_width">@dimen/dimen_100dp</item>
+        <item name="android:layout_height">@dimen/dimen_50dp</item>
+        <item name="android:background">@color/colorListItem</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/colorText</item>
+        <item name="android:textSize">@dimen/textsize_large</item>
+        <item name="android:tag">@string/tag_typeface_title</item>
+    </style>
+
+    <style name="DetailActionButton">
+        <item name="android:layout_width">@dimen/dimen_0dp</item>
+        <item name="android:layout_height">@dimen/dimen_40dp</item>
+        <item name="android:background">@color/colorPrimary</item>
+        <item name="android:layout_marginLeft">@dimen/dimen_5dp</item>
+        <item name="android:layout_weight">0.4</item>
+    </style>
+
+
+    <!-- Preferences screen -->
+    <style name="PreferencesTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="android:windowBackground">@android:color/background_light</item>
+        <item name="android:textColor">@color/colorPrimary</item>
+        <item name="android:textSize">@dimen/textsize_small</item>
+        <item name="android:listViewStyle">@style/listViewPrefs</item>
+    </style>
+
+    <style name="listViewPrefs" parent="@android:style/Widget.ListView">
+        <item name="android:cacheColorHint">@color/colorPrimary</item>
+        <item name="android:divider">@color/colorPrimary</item>
+        <item name="android:textSize">@dimen/textsize_small</item>
+        <item name="android:textColor">@color/colorPrimary</item>
+        <item name="android:layout_marginBottom">@dimen/dimen_5dp</item>
+    </style>
+
+</resources>

@@ -349,6 +349,7 @@ public class EditorActivity extends AppCompatActivity implements LoaderManager.L
             }
 
             mImageProduct.setImageBitmap(Utils.getBitmapFromUri(Uri.parse(image), mContext, mImageProduct));
+            mImageUri = Uri.parse(image);
         }
     }
 

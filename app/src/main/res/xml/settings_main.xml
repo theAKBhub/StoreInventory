@@ -11,7 +11,7 @@
 
     <SwitchPreference
         android:defaultValue="false"
-        android:key="on-offer"
-        android:title="Display Sale Products Only" />
+        android:key="@string/settings_on_offer_key"
+        android:title="@string/setting_on_offer_label" />
 
 </PreferenceScreen>

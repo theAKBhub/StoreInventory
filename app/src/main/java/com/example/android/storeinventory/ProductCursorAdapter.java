@@ -12,10 +12,9 @@ import android.view.ViewGroup;
 import android.widget.CursorAdapter;
 import android.widget.ImageButton;
 import android.widget.TextView;
-
 import com.example.android.storeinventory.data.ProductContract;
-
 import static android.content.ContentValues.TAG;
+
 
 /**
  * {@link ProductCursorAdapter} is an adapter for a list or grid view

@@ -8,8 +8,8 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
 import android.util.Log;
-
 import com.example.android.storeinventory.R;
+
 
 /**
  * {@link ContentProvider} for Inventory App.
@@ -169,7 +169,6 @@ public class ProductProvider extends ContentProvider {
             default:
                 throw new IllegalArgumentException(getContext().getString(R.string.exception_unknown_uri, uri));
         }
-
     }
 
 
@@ -357,6 +356,11 @@ public class ProductProvider extends ContentProvider {
         return rowsDeleted;
     }
 
+    /**
+     * Method to determine type of URI used to query the table
+     * @param uri
+     * @return
+     */
     @Override
     public String getType(Uri uri) {
 

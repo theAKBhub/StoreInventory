@@ -1,6 +1,5 @@
 package com.example.android.storeinventory.data;
 
-
 import android.content.ContentResolver;
 import android.net.Uri;
 import android.provider.BaseColumns;

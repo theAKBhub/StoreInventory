@@ -52,7 +52,7 @@
 
     <!-- Information Messages -->
     <string name="info_empty_store_title">Inventory is empty</string>
-    <string name="info_empty_store_subtitle">Get started by adding a product</string>
+    <string name="info_empty_store_subtitle">Get started by adding a product and make\nsure Settings allow display of all products</string>
 
 
     <!-- Display Strings -->
@@ -179,5 +179,6 @@
     <string name="settings_order_by_stock_desc_value" translatable="false">stock-desc</string>
 
     <string name="settings_on_offer_key" translatable="false">on-offer</string>
+    <string name="setting_on_offer_label">Display Sale Products Only</string>
 
 </resources>

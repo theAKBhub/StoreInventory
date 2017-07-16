@@ -57,6 +57,7 @@
         <item name="android:layout_weight">0.6</item>
         <item name="android:gravity">center</item>
         <item name="android:tag">@string/tag_typeface_b</item>
+        <item name="android:textColor">@color/colorText</item>
         <item name="android:background">@color/colorGold</item>
     </style>
 

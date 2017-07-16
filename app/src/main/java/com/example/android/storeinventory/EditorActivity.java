@@ -29,9 +29,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.example.android.storeinventory.data.ProductContract;
-
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -398,8 +396,6 @@ public class EditorActivity extends AppCompatActivity implements LoaderManager.L
         }
     }
 
-
-
     /**
      * Inflate the menu options from the res/menu/menu_editor.xml file.
      * @param menu
@@ -464,6 +460,9 @@ public class EditorActivity extends AppCompatActivity implements LoaderManager.L
         return super.onOptionsItemSelected(item);
     }
 
+    /**
+     * Method invoked when device's back button is pressed
+     */
     @Override
     public void onBackPressed() {
         // If the item hasn't changed, continue with navigating up to parent activity

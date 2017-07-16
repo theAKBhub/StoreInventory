@@ -9,10 +9,10 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
+
 
 /**
  * This class contains common methods
@@ -66,7 +66,7 @@ public class Utils {
     /**
      * Method to display the image
      * Credit => Used function from https://github.com/crlsndrsjmnz/MyShareImageExample
-     * as was recommended as best practice for image display by forum mentor
+     * as was recommended as best practice for image display by forum mentor @sudhirkhanger
      * @param uri - image path
      * @return Bitmap
      */
@@ -118,5 +118,4 @@ public class Utils {
             }
         }
     }
-
 }

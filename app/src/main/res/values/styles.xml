@@ -28,6 +28,7 @@
         <item name="android:textSize">@dimen/textsize_small</item>
         <item name="android:paddingTop">@dimen/dimen_8dp</item>
         <item name="android:tag">@string/tag_typeface_r</item>
+        <item name="android:lineSpacingExtra">@dimen/dimen_3dp</item>
     </style>
 
 

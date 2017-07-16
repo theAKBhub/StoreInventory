@@ -52,7 +52,8 @@
                 android:id="@+id/edit_product_price"
                 style="@style/EditorInput"
                 android:layout_weight="1.8"
-                android:inputType="numberDecimal"/>
+                android:inputType="numberDecimal"
+                android:hint="@string/default_price"/>
         </LinearLayout>
 
         <LinearLayout
@@ -68,7 +69,8 @@
                 android:id="@+id/edit_product_discount"
                 style="@style/EditorInput"
                 android:layout_weight="1.8"
-                android:inputType="numberDecimal"/>
+                android:inputType="numberDecimal"
+                android:hint="@string/default_price"/>
         </LinearLayout>
 
         <LinearLayout

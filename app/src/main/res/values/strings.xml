@@ -17,7 +17,7 @@
     <string name="default_emptystate_image">Empty State Image</string>
     <string name="default_editor_image">Product Image Holder</string>
     <string name="default_editor_error">Invalid entry</string>
-    <string name="default_price">£15.00</string>
+    <string name="default_price">Max price 999.99</string>
     <string name="default_stock">100</string>
     <string name="default_email">supplier@gmail.com</string>
     <string name="default_phone">\u002B44\u0020111\u0020222\u002D3333</string>
@@ -57,7 +57,7 @@
 
     <!-- Display Strings -->
     <string name="display_product_price">Price: £%.2f\u0020|\u0020</string>
-    <string name="display_product_sale_price">Sale Price: £%.2f\u0020|\u0020</string>
+    <string name="display_product_sale_price">Sale: £%.2f\u0020|\u0020</string>
     <string name="display_product_stock">Stock: %d</string>
 
 

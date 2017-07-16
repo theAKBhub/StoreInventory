@@ -6,8 +6,6 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.DatabaseUtils;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.LoaderManager;
@@ -17,7 +15,6 @@ import android.support.v4.content.Loader;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -29,16 +26,11 @@ import android.widget.Toast;
 
 import com.example.android.storeinventory.data.ProductContract;
 
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStream;
-
 public class DetailActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<Cursor> {
 
     public static final String LOG_TAG = DetailActivity.class.getSimpleName();
     final Context mContext = this;
     private static final int PRODUCT_LOADER = 1;
-
 
     /** All UI Components */
     private TextView mTextViewLabelProduct;
@@ -61,10 +53,7 @@ public class DetailActivity extends AppCompatActivity implements LoaderManager.L
     private ImageButton mButtonIncrease;
     private ImageView mImageProduct;
 
-
     private Uri mCurrentProductUri;
-
-
 
 
     @Override
@@ -194,7 +183,7 @@ public class DetailActivity extends AppCompatActivity implements LoaderManager.L
                 @Override
                 public void onGlobalLayout() {
                     mImageProduct.getViewTreeObserver().removeOnGlobalLayoutListener(this);
-                    mImageProduct.setImageBitmap(getBitmapFromUri(Uri.parse(image)));
+                    mImageProduct.setImageBitmap(Utils.getBitmapFromUri(Uri.parse(image), mContext, mImageProduct));
                 }
             });
 
@@ -237,62 +226,6 @@ public class DetailActivity extends AppCompatActivity implements LoaderManager.L
     @Override
     public void onLoaderReset(Loader<Cursor> loader) {
         // No action here
-    }
-
-    /**
-     * Method to display the image
-     * Credit => Used function from https://github.com/crlsndrsjmnz/MyShareImageExample
-     * as was recommended as best practice for image display by forum mentor
-     * @param uri - image path
-     * @return Bitmap
-     */
-    public Bitmap getBitmapFromUri(Uri uri) {
-
-        if (uri == null || uri.toString().isEmpty())
-            return null;
-
-        // Get the dimensions of the View
-        int targetW = mImageProduct.getWidth();
-        int targetH = mImageProduct.getHeight();
-
-        InputStream input = null;
-        try {
-            input = this.getContentResolver().openInputStream(uri);
-
-            // Get the dimensions of the bitmap
-            BitmapFactory.Options bmOptions = new BitmapFactory.Options();
-            bmOptions.inJustDecodeBounds = true;
-            BitmapFactory.decodeStream(input, null, bmOptions);
-            input.close();
-
-            int photoW = bmOptions.outWidth;
-            int photoH = bmOptions.outHeight;
-
-            // Determine how much to scale down the image
-            int scaleFactor = Math.min(photoW / targetW, photoH / targetH);
-
-            // Decode the image file into a Bitmap sized to fill the View
-            bmOptions.inJustDecodeBounds = false;
-            bmOptions.inSampleSize = scaleFactor;
-
-            input = this.getContentResolver().openInputStream(uri);
-            Bitmap bitmap = BitmapFactory.decodeStream(input, null, bmOptions);
-            input.close();
-            return bitmap;
-
-        } catch (FileNotFoundException fne) {
-            Log.e(LOG_TAG, getString(R.string.exception_image_load_failed), fne);
-            return null;
-        } catch (Exception e) {
-            Log.e(LOG_TAG, getString(R.string.exception_image_load_failed), e);
-            return null;
-        } finally {
-            try {
-                input.close();
-            } catch (IOException ioe) {
-
-            }
-        }
     }
 
     /**
@@ -443,5 +376,4 @@ public class DetailActivity extends AppCompatActivity implements LoaderManager.L
         // Close the activity
         finish();
     }
-
 }

@@ -10,14 +10,13 @@ import android.content.Intent;
 import android.content.Loader;
 import android.database.Cursor;
 import android.database.DatabaseUtils;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.text.InputFilter;
+import android.text.Spanned;
 import android.text.TextUtils;
-import android.util.Log;
 import android.util.Patterns;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -33,9 +32,8 @@ import android.widget.Toast;
 
 import com.example.android.storeinventory.data.ProductContract;
 
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStream;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 
 public class EditorActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<Cursor> {
@@ -88,13 +86,10 @@ public class EditorActivity extends AppCompatActivity implements LoaderManager.L
 
 
 
-    // Boolean flag that keeps track of whether the pet has been edited (true) or not (false)
+    // Boolean flag that keeps track of whether the product has been edited (true) or not (false)
     private boolean mItemHasChanged = false;
 
-    /**
-     * OnTouchListener that listens for any user touches on a View, implying that they are modifying
-     * the view, and we change the mPetHasChanged boolean to true.
-     */
+    // OnTouchListener that listens for any user touches on a View, implying that they are modifying view
     private View.OnTouchListener mTouchListener = new View.OnTouchListener() {
         @Override
         public boolean onTouch(View view, MotionEvent motionEvent) {
@@ -182,6 +177,9 @@ public class EditorActivity extends AppCompatActivity implements LoaderManager.L
         mEditTextSupplierEmail.setOnTouchListener(mTouchListener);
         mEditTextSupplierPhone.setOnTouchListener(mTouchListener);
         mCheckOffer.setOnTouchListener(mTouchListener);
+
+        mEditTextProductPrice.setFilters(new InputFilter[] {new DecimalDigitsInputFilter(5,2)});
+        mEditTextProductDiscount.setFilters(new InputFilter[] {new DecimalDigitsInputFilter(5,2)});
     }
 
     /**
@@ -211,6 +209,27 @@ public class EditorActivity extends AppCompatActivity implements LoaderManager.L
         Utils.setCustomTypeface(mContext, mButtonAddImage);
     }
 
+    /**
+     * Method to limit price input to ###.##
+     */
+    public class DecimalDigitsInputFilter implements InputFilter {
+
+        Pattern mPattern;
+
+        public DecimalDigitsInputFilter(int digitsBeforeZero,int digitsAfterZero) {
+            mPattern = Pattern.compile("[0-9]{0," + (digitsBeforeZero-1) + "}+((\\.[0-9]{0," + (digitsAfterZero-1) + "})?)||(\\.)?");
+        }
+
+        @Override
+        public CharSequence filter(CharSequence source, int start, int end, Spanned dest, int dstart, int dend) {
+            Matcher matcher = mPattern.matcher(dest);
+            if (!matcher.matches())
+                return "";
+            return null;
+        }
+
+    }
+
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
@@ -233,7 +252,7 @@ public class EditorActivity extends AppCompatActivity implements LoaderManager.L
                 @Override
                 public void onGlobalLayout() {
                     mImageProduct.getViewTreeObserver().removeOnGlobalLayoutListener(this);
-                    mImageProduct.setImageBitmap(getBitmapFromUri(mImageUri));
+                    mImageProduct.setImageBitmap(Utils.getBitmapFromUri(mImageUri, mContext, mImageProduct));
                 }
             });
         }
@@ -264,8 +283,7 @@ public class EditorActivity extends AppCompatActivity implements LoaderManager.L
      */
     @Override
     public Loader<Cursor> onCreateLoader(int i, Bundle bundle) {
-        // Since the editor shows all pet attributes, define a projection that contains
-        // all columns from the pet table
+        // Define a projection that contains all columns from the products table
         String[] projection = {
                 ProductContract.ProductEntry._ID,
                 ProductContract.ProductEntry.COLUMN_PRODUCT_NAME,
@@ -282,7 +300,7 @@ public class EditorActivity extends AppCompatActivity implements LoaderManager.L
 
         // This loader will execute the ContentProvider's query method on a background thread
         return new CursorLoader(this,       // Parent activity context
-                mCurrentProductUri,         // Query the content URI for the current pet
+                mCurrentProductUri,         // Query the content URI for the current product
                 projection,                 // Columns to include in the resulting Cursor
                 null,                       // No selection clause
                 null,                       // No selection arguments
@@ -332,7 +350,7 @@ public class EditorActivity extends AppCompatActivity implements LoaderManager.L
                 mCheckOffer.setChecked(true);
             }
 
-            mImageProduct.setImageBitmap(getBitmapFromUri(Uri.parse(image)));
+            mImageProduct.setImageBitmap(Utils.getBitmapFromUri(Uri.parse(image), mContext, mImageProduct));
         }
     }
 
@@ -372,7 +390,7 @@ public class EditorActivity extends AppCompatActivity implements LoaderManager.L
                     e.printStackTrace();
                 }
 
-                mImageProduct.setImageBitmap(getBitmapFromUri(mImageUri));
+                mImageProduct.setImageBitmap(Utils.getBitmapFromUri(mImageUri, mContext, mImageProduct));
 
             } catch (Exception e) {
                 e.printStackTrace();
@@ -380,61 +398,7 @@ public class EditorActivity extends AppCompatActivity implements LoaderManager.L
         }
     }
 
-    /**
-     * Method to display the image
-     * Credit => Used function from https://github.com/crlsndrsjmnz/MyShareImageExample
-     * as was recommended as best practice for image display by forum mentor
-     * @param uri - image path
-     * @return Bitmap
-     */
-    public Bitmap getBitmapFromUri(Uri uri) {
 
-        if (uri == null || uri.toString().isEmpty())
-            return null;
-
-        // Get the dimensions of the View
-        int targetW = mImageProduct.getWidth();
-        int targetH = mImageProduct.getHeight();
-
-        InputStream input = null;
-        try {
-            input = this.getContentResolver().openInputStream(uri);
-
-            // Get the dimensions of the bitmap
-            BitmapFactory.Options bmOptions = new BitmapFactory.Options();
-            bmOptions.inJustDecodeBounds = true;
-            BitmapFactory.decodeStream(input, null, bmOptions);
-            input.close();
-
-            int photoW = bmOptions.outWidth;
-            int photoH = bmOptions.outHeight;
-
-            // Determine how much to scale down the image
-            int scaleFactor = Math.min(photoW / targetW, photoH / targetH);
-
-            // Decode the image file into a Bitmap sized to fill the View
-            bmOptions.inJustDecodeBounds = false;
-            bmOptions.inSampleSize = scaleFactor;
-
-            input = this.getContentResolver().openInputStream(uri);
-            Bitmap bitmap = BitmapFactory.decodeStream(input, null, bmOptions);
-            input.close();
-            return bitmap;
-
-        } catch (FileNotFoundException fne) {
-            Log.e(LOG_TAG, getString(R.string.exception_image_load_failed), fne);
-            return null;
-        } catch (Exception e) {
-            Log.e(LOG_TAG, getString(R.string.exception_image_load_failed), e);
-            return null;
-        } finally {
-            try {
-                input.close();
-            } catch (IOException ioe) {
-
-            }
-        }
-    }
 
     /**
      * Inflate the menu options from the res/menu/menu_editor.xml file.
@@ -490,7 +454,6 @@ public class EditorActivity extends AppCompatActivity implements LoaderManager.L
                             public void onClick(DialogInterface dialogInterface, int i) {
                                 // User clicked "Discard" button, navigate to parent activity.
                                 finish();
-                                                    //NavUtils.navigateUpFromSameTask(EditorActivity.this);
                             }
                         };
 
@@ -505,7 +468,7 @@ public class EditorActivity extends AppCompatActivity implements LoaderManager.L
     public void onBackPressed() {
         // If the item hasn't changed, continue with navigating up to parent activity
         if (!mItemHasChanged && !hasEntry()) {
-            onBackPressed();
+            super.onBackPressed();
             return;
         }
 
@@ -729,13 +692,6 @@ public class EditorActivity extends AppCompatActivity implements LoaderManager.L
             }
         }
 
-        // Check if discount is greater than original price
-//        if ((productDiscount > 0) && (productDiscount > productPrice)) {
-//            mEditTextProductDiscount.requestFocus();
-//            mEditTextProductDiscount.setError(getString(R.string.error_discount_more_than_price));
-//            return false;
-//        }
-
         if (mCheckOffer.isChecked()) {
             offerTag = ProductContract.ProductEntry.PRODUCT_ON_OFFER;
         } else {
@@ -744,35 +700,4 @@ public class EditorActivity extends AppCompatActivity implements LoaderManager.L
 
         return true;
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }

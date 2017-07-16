@@ -173,6 +173,7 @@ public class DetailActivity extends AppCompatActivity implements LoaderManager.L
 
             if (!TextUtils.isEmpty(phone)) {
                 mTextViewSupplierPhone.setText(phone);
+                mButtonPhone.setVisibility(View.VISIBLE);
             } else {
                 mButtonPhone.setVisibility(View.GONE);
             }

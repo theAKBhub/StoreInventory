@@ -43,10 +43,21 @@
 
     <style name="ListViewProduct" parent="GENListView">
         <item name="android:textColor">@color/colorPrimary</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:ellipsize">end</item>
     </style>
 
     <style name="ListViewProductDetails" parent="GENListView">
         <item name="android:textColor">@color/colorText</item>
+    </style>
+
+    <style name="ListViewStock">
+        <item name="android:layout_width">@dimen/dimen_0dp</item>
+        <item name="android:layout_height">@dimen/list_item_height</item>
+        <item name="android:layout_weight">0.6</item>
+        <item name="android:gravity">center</item>
+        <item name="android:tag">@string/tag_typeface_b</item>
+        <item name="android:background">@color/colorGold</item>
     </style>
 
 

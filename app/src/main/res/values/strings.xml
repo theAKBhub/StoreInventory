@@ -11,8 +11,8 @@
 
     <!-- Default / Placeholder Strings for Views -->
     <string name="default_product_name">Product Name</string>
-    <string name="default_product_price">Price: £15.00\u0020\u0020|\u0020\u0020</string>
-    <string name="default_product_sale_price">Sale Price: £10.00\u0020\u0020|\u0020\u0020</string>
+    <string name="default_product_price">Price: £999.99\u0020|\u0020</string>
+    <string name="default_product_sale_price">Sale: £999.99\u0020</string>
     <string name="default_product_stock">\u0020\u0020|\u0020\u0020Stock: 100</string>
     <string name="default_emptystate_image">Empty State Image</string>
     <string name="default_editor_image">Product Image Holder</string>
@@ -56,9 +56,12 @@
 
 
     <!-- Display Strings -->
-    <string name="display_product_price">Price: £%.2f\u0020|\u0020</string>
-    <string name="display_product_sale_price">Sale: £%.2f\u0020|\u0020</string>
-    <string name="display_product_stock">Stock: %d</string>
+    <string name="display_product_price">Price: £%.2f</string>
+    <!--<string name="display_product_sale_price">Sale: £%.2f\u0020|\u0020</string>-->
+    <!--<string name="display_product_stock">Stock: %d</string>-->
+
+    <string name="display_product_sale_price">\u0020\u0020|\u0020\u0020Sale: £%.2f</string>
+    <string name="display_product_stock">%d</string>
 
 
     <!-- Menu Strings -->

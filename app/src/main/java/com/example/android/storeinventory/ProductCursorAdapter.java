@@ -102,6 +102,7 @@ public class ProductCursorAdapter extends CursorAdapter {
         holder.textViewPrice.setText(mContext.getString(R.string.display_product_price, price.doubleValue()));
         holder.textViewStock.setText(mContext.getString(R.string.display_product_stock, stock));
 
+
         if (discountPrice > 0) {
             holder.textViewDiscount.setText(mContext.getString(R.string.display_product_sale_price, discountPrice.doubleValue()));
         } else if (discountPrice == null || discountPrice == 0.0) {

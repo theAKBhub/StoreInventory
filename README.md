@@ -1,7 +1,7 @@
 # Store Inventory App
 *Created as part of Udacity's Android Basics by Google Nanodegree Program*
 
-** Note => Check branch "Version 2" for most recent version **
+**Note => Check branch "Version 2" for most recent version**
 __________________
 
 #### Project Overview
